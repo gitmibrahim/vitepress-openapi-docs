@@ -58,17 +58,6 @@ function hydrateAuthStore(name: string) {
     }
   }
 
-  watch(store, (value) => {
-    try {
-      if (value === undefined) {
-        sessionStorage.removeItem(key)
-      } else {
-        sessionStorage.setItem(key, JSON.stringify(value))
-      }
-    } catch {
-      // sessionStorage quota exceeded — credential won't persist but UI still works
-    }
-  })
 }
 
 /** Per-spec credential cache. SSR-safe (reads in onMounted). Accepts a reactive ref or plain string. */
