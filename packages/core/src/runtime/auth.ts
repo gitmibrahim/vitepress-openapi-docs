@@ -57,7 +57,6 @@ function hydrateAuthStore(name: string) {
       sessionStorage.removeItem(key)
     }
   }
-
 }
 
 /** Per-spec credential cache. SSR-safe (reads in onMounted). Accepts a reactive ref or plain string. */
