@@ -43,11 +43,11 @@ describe('AuthControls', () => {
   })
 
   it('clears stored credentials when the button is clicked', async () => {
-    sessionStorage.setItem('vod:auth:public', JSON.stringify({ scheme: 'bearer', value: 'X' }))
-    const wrapper = mount(AuthControls, { props: { specName: 'public', scheme: 'bearer' } })
+    sessionStorage.setItem('vod:auth:clear-test', JSON.stringify({ scheme: 'bearer', value: 'X' }))
+    const wrapper = mount(AuthControls, { props: { specName: 'clear-test', scheme: 'bearer' } })
     await nextTick()
     await wrapper.find('button.vod-auth__clear').trigger('click')
-    expect(sessionStorage.getItem('vod:auth:public')).toBeNull()
+    expect(sessionStorage.getItem('vod:auth:clear-test')).toBeNull()
     expect((wrapper.find('input').element as HTMLInputElement).value).toBe('')
   })
 
